@@ -6,9 +6,10 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Home from "./components/home";
 import About from "./components/about";
 import Contact from "./components/contact";
-import Cart from "./components/cart";
+
 import Error from "./components/error";
 import CardDetails from "./components/cardDetails";
+import { lazy, Suspense } from "react";
 
 const Applayout =()=>{
     return <>
@@ -16,6 +17,8 @@ const Applayout =()=>{
         <Outlet></Outlet>
     </>
 }
+
+const Cart = lazy(()=>import("./components/cart"))
 
 const routerConfig = createBrowserRouter([
     {
@@ -41,7 +44,7 @@ const routerConfig = createBrowserRouter([
             }, 
             {
                 path: '/cart',
-                element: <Cart/>
+                element: <Suspense fallback={<h1>Code is working</h1>}> <Cart/> </Suspense>
             }, {
                 path: '/cardDetail/:id',
                 element: <CardDetails/>

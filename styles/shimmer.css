@@ -69,3 +69,37 @@
         transform: translateY(0); 
         opacity: 1;
     }
+
+    .online {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background-color: green;
+        &:hover{
+            &::after{
+                content: "Online";
+                color: black;
+                font-weight: bold;
+                position: relative;
+                left: -15px;
+                top: -20px;
+            };
+        }
+    }
+
+    .offline {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background-color: red;
+         &:hover{
+            &::after{
+                content: "Offline";
+                color: black;
+                font-weight: bold;
+                position: relative;
+                left: -15px;
+                top: -20px;
+            };
+        }
+    }
