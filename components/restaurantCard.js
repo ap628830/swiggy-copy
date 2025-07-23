@@ -34,13 +34,13 @@ const RestaurantCard =()=>{
         <button onClick={searchRestaurant}>Search</button>
         <button onClick={()=>setFilteredData(data)}>Reset</button>
     </div>
-    <div className='restaurantCard'>
-        {data.length == 0 ?<Shimmer></Shimmer> : filteredData.map(res=>{
+    {data.length == 0 ?<Shimmer></Shimmer> : ( <div className='restaurantCard'>
+        {filteredData.map(res=>{
            return <Card key={res.info.id} data={res.info}/>  
         })}
-        
-       
-    </div>
+          
+    </div>)}
+  
     </>
 }
 

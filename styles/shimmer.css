@@ -3,3 +3,69 @@
     width: 200px;
     height: 350px;
 }
+.shimmerWrapper {
+     padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.cardTitle {
+    cursor: pointer;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 3px;
+    margin: 10px;
+    font-weight: 700;
+    font-size: large;
+}
+
+.cardDetailWrapper {
+    border-bottom: 2px solid lightgray;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.cardImage {
+    width: 200px;
+    height: 120px;
+    border-radius: 3px;
+    position: relative;
+}
+.cardName {
+    font-size: medium;
+    font-weight: 700;
+    margin: 4px;
+}
+
+.cardPrice {
+    font-weight: bold;
+    padding: 5px;
+}
+
+.addCardButton {
+    color: green;
+    font-weight: bolder;
+    padding: 8px 35px;
+    font-size: large;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    background-color: white;
+    cursor: pointer;
+    position:relative;
+    top: -25px;
+    left: 30px;
+}
+.restaurantCardDetails {
+    transition: opacity 0.1s ease, transform 0.9s ease;
+    opacity: 0;
+    transform: translateY(-20px);
+   
+}
+ .show {
+        transform: translateY(0); 
+        opacity: 1;
+    }

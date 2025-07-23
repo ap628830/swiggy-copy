@@ -8,6 +8,7 @@ import About from "./components/about";
 import Contact from "./components/contact";
 import Cart from "./components/cart";
 import Error from "./components/error";
+import CardDetails from "./components/cardDetails";
 
 const Applayout =()=>{
     return <>
@@ -41,6 +42,9 @@ const routerConfig = createBrowserRouter([
             {
                 path: '/cart',
                 element: <Cart/>
+            }, {
+                path: '/cardDetail/:id',
+                element: <CardDetails/>
             }
         ]
     },

@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom"
 import { CloudnaryImageBaseURL } from "../constants/urls"
 
 const Card = (props)=>{
-    const {name,cloudinaryImageId,cuisines,costForTwo,avgRatingString} = props.data
+    const navigate = useNavigate()
+    const {name,cloudinaryImageId,cuisines,costForTwo,avgRatingString,id} = props.data
     return <>
-    <div className="cardWrapper">
+    <div className="cardWrapper" onClick={e=>navigate(`/cardDetail/${id}`)}>
         <div className="card">
             <div >
                 <img src={CloudnaryImageBaseURL+cloudinaryImageId} alt="" className="cardImage"/>
