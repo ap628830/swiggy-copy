@@ -11,16 +11,21 @@ import Error from "./components/error";
 import CardDetails from "./components/cardDetails";
 import { lazy, Suspense, useState } from "react";
 import UserContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import cartStore from "./utils/cartStore";
 
 
 
 const Applayout =()=>{
     const [userName, setUser] = useState('Abhishek')
     return <>
+    <Provider store={cartStore}>
     <UserContext.Provider value={{loggedInUser: userName,setUser}}>
         <Header></Header>
         <Outlet></Outlet>
     </UserContext.Provider>
+
+    </Provider>
     </>
 }
 

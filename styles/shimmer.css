@@ -115,3 +115,10 @@
     left: -8px;
     font-weight: bolder;
     }
+
+    .cleanCart {
+        margin: 5px;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
