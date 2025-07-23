@@ -41,7 +41,7 @@ const CardDetails = () => {
             {data.length==0? <Shimmer/> : data.map((cardData,i)=>{
                 return (<div key={cardData.card.card.title}>
                     <div >
-                        <div className="cardTitle" onClick={e=>toggleIndex(i)}>{cardData.card.card.title}</div>
+                        <div className="cardTitle" onClick={e=>toggleIndex(i)}>{cardData.card.card.title} <span style={{float:'right', color: "black"}}> ▼ </span> </div>
                         <div>
                            {(i==selectedIndex && open)? <RestaurantDetails restaurantDetails = {cardData.card.card.itemCards}></RestaurantDetails> :<></>}
                         </div>

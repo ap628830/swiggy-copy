@@ -1,13 +1,16 @@
 import {SwiggyAPI} from '../constants/urls'
+import UserContext from '../utils/userContext'
 import Card from './card'
 import Shimmer from './shimmer'
 
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 
 const RestaurantCard =()=>{
     const [data,setData] = useState([])
     const [filteredData, setFilteredData] = useState([])
     const [name, setName] = useState('')
+    const [userName, setUserName] = useState('')
+    const {setUser} = useContext(UserContext)
   
     const fetchData = async ()=>{
         const data = await fetch(SwiggyAPI)
@@ -24,6 +27,11 @@ const RestaurantCard =()=>{
         setFilteredData(selectedData)
     }
 
+    const updateUsername = (e)=>{
+        setUserName(e.target.value)
+        setUser(e.target.value)
+    }
+
     useEffect(()=>{
     fetchData()
     },[])
@@ -33,6 +41,8 @@ const RestaurantCard =()=>{
         <input type="text" value={name} placeholder='Search Restaurant' onChange={e=>setName(e.target.value)} />
         <button onClick={searchRestaurant}>Search</button>
         <button onClick={()=>setFilteredData(data)}>Reset</button>
+        <label>Username: </label>
+        <input type="text" value={userName} onChange={updateUsername} />
     </div>
     {data.length == 0 ?<Shimmer></Shimmer> : ( <div className='restaurantCard'>
         {filteredData.map(res=>{

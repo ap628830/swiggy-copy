@@ -9,16 +9,23 @@ import Contact from "./components/contact";
 
 import Error from "./components/error";
 import CardDetails from "./components/cardDetails";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
+import UserContext from "./utils/userContext";
+
+
 
 const Applayout =()=>{
+    const [userName, setUser] = useState('Abhishek')
     return <>
+    <UserContext.Provider value={{loggedInUser: userName,setUser}}>
         <Header></Header>
         <Outlet></Outlet>
+    </UserContext.Provider>
     </>
 }
 
 const Cart = lazy(()=>import("./components/cart"))
+
 
 const routerConfig = createBrowserRouter([
     {

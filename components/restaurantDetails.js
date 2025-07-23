@@ -12,7 +12,7 @@ const RestaurantDetails = ({restaurantDetails})=>{
     },)
     return (<div className={`restaurantCardDetails ${show?'show':''}`}>
         {restaurantDetails.map(details=>{
-            const {name,price,description} = details.card.info
+            const {name,price,defaultPrice,description} = details.card.info
             return (<div key={details.card.info.id} className="cardDetailWrapper">
                 <div className="cardDetailsData">
                      <div className="cardName">
@@ -20,7 +20,7 @@ const RestaurantDetails = ({restaurantDetails})=>{
                      </div>
                      <div className="cardPrice">
                         <span>{'\u20B9'}</span> &nbsp;
-                         {price/100}
+                         {(price || defaultPrice)/100}
                      </div>
                      <div>
                         {description}

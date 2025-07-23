@@ -6,6 +6,7 @@ const Card = (props)=>{
     const {name,cloudinaryImageId,cuisines,costForTwo,avgRatingString,id} = props.data
     return <>
     <div className="cardWrapper" onClick={e=>navigate(`/cardDetail/${id}`)}>
+      
         <div className="card">
             <div >
                 <img src={CloudnaryImageBaseURL+cloudinaryImageId} alt="" className="cardImage"/>
@@ -18,6 +19,11 @@ const Card = (props)=>{
 
             </div>
         </div>
+
+          {
+            avgRatingString>4.5? (<div className="rating"> Top Rated Restaurant</div>) : <></>
+        }
+        
 
     </div>
     </>
